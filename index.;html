@@ -1,0 +1,146 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Community Canvas Bolton</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f7f4ef;
+      color: #222;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #2f5d50;
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 42px;
+    }
+
+    header p {
+      font-size: 20px;
+      margin-top: 10px;
+    }
+
+    section {
+      max-width: 900px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+
+    .card {
+      background: white;
+      padding: 25px;
+      margin: 20px 0;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    h2 {
+      color: #2f5d50;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      background: #222;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Community Canvas Bolton</h1>
+    <p>A collaborative pavement painting project in Bolton town centre</p>
+  </header>
+
+  <section>
+    <div class="card">
+      <h2>Project Overview</h2>
+      <p>
+        Community Canvas Bolton is a proposed public art project where local residents,
+        young people, artists, community groups, and visitors can contribute to a shared
+        painted canvas in Bolton town centre.
+      </p>
+      <p>
+        The project aims to create a colourful, welcoming and community-led artwork that
+        celebrates local identity, creativity and public participation.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>Aims</h2>
+      <ul>
+        <li>Encourage community participation and creativity.</li>
+        <li>Brighten public space in Bolton town centre.</li>
+        <li>Give residents a visible role in shaping their local environment.</li>
+        <li>Support local artists, schools and community organisations.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Location</h2>
+      <p>
+        The proposed location is a suitable pavement or public square area within Bolton
+        town centre, subject to council approval, safety checks and public access requirements.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>How It Would Work</h2>
+      <p>
+        A temporary or semi-permanent surface would be prepared for painting. Participants
+        would be invited to add designs, patterns, messages or artwork within agreed guidelines.
+      </p>
+      <p>
+        The project could take place over one day or across a weekend, with volunteers and
+        organisers present to manage materials, safety and participation.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>Permissions and Safety</h2>
+      <p>
+        The project would require permission from the relevant local authority and any landowner.
+        Materials would be chosen carefully to avoid damage, slipping hazards or obstruction.
+      </p>
+      <p>
+        A risk assessment would be completed before the project begins.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>Expected Benefits</h2>
+      <ul>
+        <li>A more vibrant and welcoming town centre.</li>
+        <li>Greater community pride and ownership.</li>
+        <li>Positive engagement with young people and local groups.</li>
+        <li>A creative attraction for visitors and residents.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Contact</h2>
+      <p>
+        For more information or to support the proposal, please contact the project organiser.
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    <p>Community Canvas Bolton &copy; 2026</p>
+  </footer>
+
+</body>
+</html>
+```
