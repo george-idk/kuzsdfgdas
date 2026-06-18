@@ -5,142 +5,299 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Community Canvas Bolton</title>
+
   <style>
+    :root {
+      --bg: #f3f0e8;
+      --text: #171717;
+      --muted: #666;
+      --red: #e84c3d;
+      --blue: #1f6feb;
+      --yellow: #f2c94c;
+      --green: #2f9e44;
+      --black: #111;
+      --white: #fff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f7f4ef;
-      color: #222;
-      line-height: 1.6;
+      font-family: Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    .shape {
+      position: fixed;
+      z-index: -1;
+      opacity: 0.9;
+      animation: float 12s infinite ease-in-out alternate;
+    }
+
+    .circle {
+      width: 180px;
+      height: 180px;
+      background: var(--red);
+      border-radius: 50%;
+      top: 8%;
+      right: 8%;
+    }
+
+    .square {
+      width: 160px;
+      height: 160px;
+      background: var(--blue);
+      bottom: 12%;
+      left: 6%;
+      animation-delay: 2s;
+    }
+
+    .bar {
+      width: 360px;
+      height: 42px;
+      background: var(--yellow);
+      top: 58%;
+      right: -80px;
+      transform: rotate(-18deg);
+      animation-delay: 4s;
+    }
+
+    @keyframes float {
+      from {
+        transform: translateY(0) rotate(0deg);
+      }
+      to {
+        transform: translateY(-35px) rotate(12deg);
+      }
     }
 
     header {
-      background: #2f5d50;
-      color: white;
-      padding: 60px 20px;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 40px 20px;
       text-align: center;
     }
 
-    header h1 {
-      margin: 0;
-      font-size: 42px;
+    .hero {
+      max-width: 900px;
+      animation: fadeUp 1s ease forwards;
     }
 
-    header p {
-      font-size: 20px;
-      margin-top: 10px;
+    .tag {
+      display: inline-block;
+      padding: 8px 14px;
+      border: 2px solid var(--black);
+      border-radius: 999px;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 24px;
+      background: var(--white);
+    }
+
+    h1 {
+      font-size: clamp(56px, 12vw, 140px);
+      line-height: 0.9;
+      margin: 0;
+      text-transform: uppercase;
+      letter-spacing: -6px;
+    }
+
+    .hero p {
+      max-width: 650px;
+      margin: 30px auto;
+      font-size: 22px;
+      color: var(--muted);
+    }
+
+    .button {
+      display: inline-block;
+      margin-top: 18px;
+      padding: 16px 26px;
+      background: var(--black);
+      color: var(--white);
+      text-decoration: none;
+      border-radius: 999px;
+      transition: transform 0.25s ease, background 0.25s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-4px);
+      background: var(--red);
     }
 
     section {
-      max-width: 900px;
+      max-width: 1100px;
       margin: auto;
-      padding: 40px 20px;
+      padding: 70px 20px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
     }
 
     .card {
-      background: white;
-      padding: 25px;
-      margin: 20px 0;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      background: rgba(255,255,255,0.75);
+      border: 2px solid var(--black);
+      padding: 28px;
+      min-height: 240px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      animation: fadeUp 0.8s ease both;
     }
 
-    h2 {
-      color: #2f5d50;
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 10px 10px 0 var(--black);
+    }
+
+    .card h2 {
+      margin-top: 0;
+      font-size: 30px;
+      text-transform: uppercase;
+      letter-spacing: -1px;
+    }
+
+    .card p, li {
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    .banner {
+      margin: 80px 0;
+      padding: 40px 20px;
+      background: var(--black);
+      color: var(--white);
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .banner span {
+      display: inline-block;
+      font-size: 36px;
+      text-transform: uppercase;
+      font-weight: 700;
+      animation: scrollText 14s linear infinite;
+    }
+
+    @keyframes scrollText {
+      from {
+        transform: translateX(100%);
+      }
+      to {
+        transform: translateX(-100%);
+      }
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(35px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     footer {
+      padding: 40px 20px;
       text-align: center;
-      padding: 25px;
-      background: #222;
-      color: white;
+      border-top: 2px solid var(--black);
+      color: var(--muted);
     }
   </style>
 </head>
+
 <body>
+  <div class="shape circle"></div>
+  <div class="shape square"></div>
+  <div class="shape bar"></div>
 
   <header>
-    <h1>Community Canvas Bolton</h1>
-    <p>A collaborative pavement painting project in Bolton town centre</p>
+    <div class="hero">
+      <div class="tag">Project Proposal / Bolton Town Centre</div>
+      <h1>Community Canvas</h1>
+      <p>
+        A collaborative public art project inviting Bolton residents, artists,
+        young people and community groups to help create a shared painted space
+        in the heart of the town centre.
+      </p>
+      <a href="#proposal" class="button">View Proposal</a>
+    </div>
   </header>
 
-  <section>
-    <div class="card">
-      <h2>Project Overview</h2>
-      <p>
-        Community Canvas Bolton is a proposed public art project where local residents,
-        young people, artists, community groups, and visitors can contribute to a shared
-        painted canvas in Bolton town centre.
-      </p>
-      <p>
-        The project aims to create a colourful, welcoming and community-led artwork that
-        celebrates local identity, creativity and public participation.
-      </p>
-    </div>
+  <section id="proposal">
+    <div class="grid">
+      <div class="card">
+        <h2>Concept</h2>
+        <p>
+          Community Canvas would transform a selected public space into a colourful,
+          community-made artwork, using paint, pattern and local identity.
+        </p>
+      </div>
 
-    <div class="card">
-      <h2>Aims</h2>
-      <ul>
-        <li>Encourage community participation and creativity.</li>
-        <li>Brighten public space in Bolton town centre.</li>
-        <li>Give residents a visible role in shaping their local environment.</li>
-        <li>Support local artists, schools and community organisations.</li>
-      </ul>
-    </div>
+      <div class="card">
+        <h2>Aims</h2>
+        <ul>
+          <li>Brighten Bolton town centre</li>
+          <li>Support local creativity</li>
+          <li>Encourage public participation</li>
+          <li>Create a shared civic artwork</li>
+        </ul>
+      </div>
 
-    <div class="card">
-      <h2>Location</h2>
-      <p>
-        The proposed location is a suitable pavement or public square area within Bolton
-        town centre, subject to council approval, safety checks and public access requirements.
-      </p>
-    </div>
+      <div class="card">
+        <h2>Location</h2>
+        <p>
+          The project would take place on a suitable pavement, square or public
+          surface in Bolton town centre, subject to approval and safety checks.
+        </p>
+      </div>
 
-    <div class="card">
-      <h2>How It Would Work</h2>
-      <p>
-        A temporary or semi-permanent surface would be prepared for painting. Participants
-        would be invited to add designs, patterns, messages or artwork within agreed guidelines.
-      </p>
-      <p>
-        The project could take place over one day or across a weekend, with volunteers and
-        organisers present to manage materials, safety and participation.
-      </p>
-    </div>
+      <div class="card">
+        <h2>Delivery</h2>
+        <p>
+          The canvas could be prepared in advance, with residents invited to add
+          designs during a supervised public painting day or weekend event.
+        </p>
+      </div>
 
-    <div class="card">
-      <h2>Permissions and Safety</h2>
-      <p>
-        The project would require permission from the relevant local authority and any landowner.
-        Materials would be chosen carefully to avoid damage, slipping hazards or obstruction.
-      </p>
-      <p>
-        A risk assessment would be completed before the project begins.
-      </p>
-    </div>
+      <div class="card">
+        <h2>Safety</h2>
+        <p>
+          Permission, non-slip materials, supervision, accessibility and a full
+          risk assessment would be required before installation.
+        </p>
+      </div>
 
-    <div class="card">
-      <h2>Expected Benefits</h2>
-      <ul>
-        <li>A more vibrant and welcoming town centre.</li>
-        <li>Greater community pride and ownership.</li>
-        <li>Positive engagement with young people and local groups.</li>
-        <li>A creative attraction for visitors and residents.</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <h2>Contact</h2>
-      <p>
-        For more information or to support the proposal, please contact the project organiser.
-      </p>
+      <div class="card">
+        <h2>Impact</h2>
+        <p>
+          The project would make the town centre feel more welcoming, creative
+          and community-owned.
+        </p>
+      </div>
     </div>
   </section>
 
-  <footer>
-    <p>Community Canvas Bolton &copy; 2026</p>
-  </footer>
+  <div class="banner">
+    <span>Paint the town / Share the space / Build community / Bolton creates /</span>
+  </div>
 
+  <footer>
+    Community Canvas Bolton © 2026
+  </footer>
 </body>
 </html>
 ```
